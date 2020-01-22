@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 50%;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+}
+.field-finish {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 24px;
+}
+.container fieldset,
+.field-finish {
+  position: absolute;
+  height: 70px;
+  left: 50%;
+  width: 60%;
+  top: 50%;
+  color: #1a73e8;
+  font-size: 18px;
+  border-color: #1a73e8;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+}
+fieldset input {
+  width: 98%;
+  padding: 10px 0px 0px 10px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+input:focus{
+  
+}
+fieldset button {
+  float: right;
+  position: relative;
+  top: 40px;
+  height: 40px;
+  background: #1a73e8;
+  color: white;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+    border-radius: 6px;
+    width: 85px;
+}
+button:hover {
+    box-shadow: 1px 0px 3px 0px #1f1b40;
+
+}
+.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translate(-50%, -50%);
+}
+.notactive {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 50%);
+}
+@keyframes shake {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(10deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
