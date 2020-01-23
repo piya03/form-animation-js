@@ -16,9 +16,9 @@ function animatedForm() {
       } else {
         parent.style.animation = "shake 0.5s ease";
       }
-      parent.addEventListener('animationend', () => {
-        parent.style.animation = ""
-      })
+      parent.addEventListener("animationend", () => {
+        parent.style.animation = "";
+      });
     });
   });
 }
@@ -38,6 +38,7 @@ function error(color) {
 }
 
 function nextSlide(parent, nextparent) {
+  nextparent.children[1].focus();
   parent.classList.add("notactive");
   parent.classList.remove("active");
   nextparent.classList.add("active");
@@ -54,4 +55,26 @@ function validateEmail(email) {
     error("#f9eeeb");
   }
 }
+
+window.addEventListener("keydown", handleKeyPress);
+function handleKeyPress(event) {
+  console.log("asdsafsafas");
+  if (event.keyCode === 13) {
+    event.target.nextElementSibling.click();
+  }
+}
+
+const inputs = document.querySelectorAll("input");
+inputs.forEach(eachInput => {
+  eachInput.addEventListener("focus", event => {
+    eachInput.parentElement.style.boxShadow = "0px 0px 8px grey";
+  });
+});
+
+inputs.forEach(eachInput => {
+  eachInput.addEventListener("blur", event => {
+    eachInput.parentElement.style.boxShadow = "";
+  });
+});
+
 animatedForm();
