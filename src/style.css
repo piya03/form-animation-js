@@ -3,9 +3,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: cursive;
-  background: aliceblue;
 }
+body {
 
+}
 .container {
   width: 50%;
   height: 100vh;
