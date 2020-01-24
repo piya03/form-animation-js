@@ -58,7 +58,6 @@ function validateEmail(email) {
 
 window.addEventListener("keydown", handleKeyPress);
 function handleKeyPress(event) {
-  console.log("asdsafsafas");
   if (event.keyCode === 13) {
     event.target.nextElementSibling.click();
   }
@@ -67,14 +66,30 @@ function handleKeyPress(event) {
 const inputs = document.querySelectorAll("input");
 inputs.forEach(eachInput => {
   eachInput.addEventListener("focus", event => {
+    eachInput.previousElementSibling.style.position = "relative";
+    eachInput.previousElementSibling.style.left = "0px";
+    eachInput.previousElementSibling.style.top = "-5px";
+    eachInput.previousElementSibling.style.transition = "all .2s";
+    eachInput.previousElementSibling.style.fontSize = "16px";
     eachInput.parentElement.style.boxShadow = "0px 0px 8px grey";
   });
 });
 
 inputs.forEach(eachInput => {
   eachInput.addEventListener("blur", event => {
-    eachInput.parentElement.style.boxShadow = "";
-  });
+    console.log(
+      `document.querySelector("input:valid")`,
+      document.querySelector("input:valid")
+    );
+    if (eachInput.value === "") {
+      eachInput.previousElementSibling.style.position = "absolute";
+      eachInput.previousElementSibling.style.left = "";
+      eachInput.previousElementSibling.style.top = "";
+      eachInput.previousElementSibling.style.fontSize = "";
+      eachInput.parentElement.style.boxShadow = "";
+    }
+   
+  }); 
 });
 
 animatedForm();
